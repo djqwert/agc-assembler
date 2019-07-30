@@ -8,7 +8,7 @@ Features:
   - error detenction is provided
   - data section comes before the code section
   - constants and variables inside data section
-  - costants comes before variables
+  - constants comes before variables
   - constants, variables and code addressing can be managed using counter
   - four tables are formed: jump table, symbol table, data table and register table
   - there is an example of assembly code in code.as used to fetch assembly instructions
