@@ -24,8 +24,7 @@ int counter = START_ROM_COUNT;  //holds the address of the machine code instruct
 int datacounter = START_RAM_COUNT;
 FILE* list;
 
-// A label is a symbol which mark a location in a program. In the example 
-// program above, the string "lpp", "loop" and "lp1" are labels.
+// A label is a symbol which mark a location in a program.
 struct symbol_t{
 	int location;
 	char label[MAX_OPERAND_LEN];
