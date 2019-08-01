@@ -1,9 +1,8 @@
 .data
 	
-	// DSPTAB 530
 	.constant
 	
-	//costantiDSPTAB
+	//costanti DSPTAB
 	costantiDSPTAB: 0b1011000000000000;	// B000
 	dsp1: 0b1010000000000000;			// A000
 	dsp2: 0b1001000000000000;			// 9000
@@ -16,12 +15,12 @@
 	dsp9: 0b0010000000000000;			// 2000
 	dsp10: 0b0001000000000000;			// 1000
 	
-	timer: 0b1111111111101000; //costante (valore timer)
-	cost32: 0b0000000001000000; //costante (64 << 1): 32
-	cost11: 0b0000000000010110; //costante (22 << 1): 11
-	par_attesa: 0b0000101110011110; // PARAM: 1487 (125 ms.)
-	cost_-0: 0b1000000000000000; // constant -0
-	cost_0: 0b0000000000000000; // constant 0
+	timer: 0b1111111111101000; 			// costante (valore timer)
+	cost32: 0b0000000001000000; 		// costante (64 << 1): 32
+	cost11: 0b0000000000010110; 		// costante (22 << 1): 11
+	par_attesa: 0b0000101110011110; 	// parametro di attesa: 1487 (125 ms.)
+	cost_-0: 0b1000000000000000; 		// constant -0
+	cost_0: 0b0000000000000000; 		// constant 0
 	
 	// Tebella valori DSKY
 	dskyblank: 	0
@@ -35,7 +34,7 @@
 	dsky7:		38	// 19 << 1
 	dsky8: 		58 	// 29 << 1
 	dsky9:		62	// 31 << 1
-	dsky35:	0b1011011011111100; // combinazione DSKY 35
+	dsky35:	0b1011011011111100; // combinazione DSKY programma 35
 	
 	// Tabella valori
 	key_0: 32
@@ -58,7 +57,8 @@
 	key_noun: 62
 	key_press = 202
 	key_release = 204
-	maskA: 0b1111111111100000;	// Costante usata per fare AND con registro A
+	
+	maskA: 0b1111111111100000;		// Costante usata per fare AND con registro A
 	cost1cmp2: 0b1111111111111100;	// Costante -1 in cmp1
 	on_rset: 0b0000100000000000;	// Costante usata per accendere la lampadina di reboot
 
@@ -87,7 +87,7 @@
 	digit13_14: 0b0101111101111010	// digits 13,14		8
 	digit15_16: 0b0100011101111010	// digits 15,16		8
 	digit17_19: 0b0011111101101010	// digits 17,19		8
-	digit17_19on: 0b0011111101111010 // digits 17,19		8
+	digit17_19on: 0b0011111101111010 // digits 17,19	8
 	digit20_21: 0b0010111101111010	// digits 20,21		8
 	digit22_23: 0b0001011101111010	// digits 22,23		8
 	
@@ -105,12 +105,12 @@
 	tablamp11off: 0b1100000000001000
 	tablamp12off: 0b1100000000000000
 	
-	tabprogoff: 0b0000000001000000; // PROG DSP			9
+	tabprogoff: 0b0000000001000000; 	// PROG DSP			9
 	digit0_1off: 0b1011010101101010;	// digits 0,1		8
 	tabvnoff: ROM: 0b0000000000000000;	// VERB / NOUN		9
 	digit2_3off: 0b1010010101101010;	// digits 2,3		8
 	digit4_5off: 0b1001010101101010;	// digits 4,5		8
-	digit7off: 0b1000000000101010;	// digits -,7		8
+	digit7off: 0b1000000000101010;		// digits -,7		8
 	digit8_9off: 0b0111010101101010;	// digits 8,9		8
 	digit10_11off: 0b0110010101101010;	// digits 10,11		8
 	digit13_14off: 0b0101010101101010;	// digits 13,14		8
@@ -121,32 +121,46 @@
 	digit22_23off: 0b0001010101101010;	// digits 22,23	
 	
 	.variable
+	buffer: 0
 	
-	//543-553 arrayCifra1
-	arrayCifra1: 0b1000000000000000; // -0 (blank)
-	ram544: 0b1000000000000000; // -0 (blank)
-	ram545: 0b1000000000000000; // -0 (blank)
-	ram546: 32;	// 16 << 1
-	ram547: 32;
-	ram548: 32;
-	ram549: 32;
-	ram550: 32;
-	ram551: 32;
-	ram552: 32;
-	ram553: 32;
+	counter_dsptab: 0		// contatore delle celle usate
+	cellatab1: 0
+	cellatab2: 0
+	cellatab3: 0
+	cellatab4: 0
+	cellatab5: 0
+	cellatab6: 0
+	cellatab7: 0
+	cellatab8: 0
+	cellatab9: 0
+	cellatab10: 0
+	cellatab11: 0
 	
-	//554-564 arrayCifra2
-	arrayCifra2: 0b1000000000000000; // -0 (blank)
-	ram555: 0b1000000000000000; // -0 (blank)
-	ram556: 0b1000000000000000; // -0 (blank)
-	ram557: 32;
-	ram558: 32;
-	ram559: 32;
-	ram560: 32;
-	ram561: 32;
-	ram562: 32;
-	ram563: 32;
-	ram564: 32;
+	// arrayCifra1
+	arrayCifra1_1: 0b1000000000000000; 	// -0 (blank)
+	arrayCifra1_2: 0b1000000000000000; 	// -0 (blank)
+	arrayCifra1_3: 0b1000000000000000; 	// -0 (blank)
+	arrayCifra1_4: 32;					// 16 << 1
+	arrayCifra1_5: 32;
+	arrayCifra1_6: 32;
+	arrayCifra1_7: 32;
+	arrayCifra1_8: 32;
+	arrayCifra1_9: 32;
+	arrayCifra1_10: 32;
+	arrayCifra1_11: 32;
+	
+	// arrayCifra2
+	arrayCifra2_1: 0b1000000000000000; 	// -0 (blank)
+	arrayCifra2_2: 0b1000000000000000; 	// -0 (blank)
+	arrayCifra2_3: 0b1000000000000000;	// -0 (blank)
+	arrayCifra2_4: 32;
+	arrayCifra2_5: 32;
+	arrayCifra2_6: 32;
+	arrayCifra2_7: 32;
+	arrayCifra2_8: 32;
+	arrayCifra2_9: 32;
+	arrayCifra2_10: 32;
+	arrayCifra2_11: 32;
 	
 	//lamps1 and lamps2
 	lamps1: 0b1100000000000000;			// C000
@@ -176,45 +190,45 @@
 		// FINE BIOS
 
 		// INT16
-		CA 600		// INT16: T4RUPT
-		TS ram544
-		CA 601
-		TS ram555
-		CA 602
-		TS ram545
-		CA 603
-		TS ram556
+		CA 600		// Cifra 1 VERB 	INT16: T4RUPT
+		TS arrayCifra1_2
+		CA 601		// Cifra 2 VERB 
+		TS arrayCifra2_2
+		CA 602		// Cifra 1 NOUN 
+		TS arrayCifra1_3
+		CA 603		// Cifra 2 NOUN
+		TS arrayCifra2_3
 
 		CA timer
-		TS 27
+		TS 27		// Timer counter
 		CA Z
-		TS 530
+		TS counter_dsptab
 		
-ciclo:	INDEX 530
-		CA arrayCifra1
+ciclo:	INDEX counter_dsptab
+		CA arrayCifra1_1
 		TC toDSKYformat
 		EXT
 		MP cost32
-		CA L			// A = L
-		INDEX 530
-		TS 531			// Memorizzo A
-		INDEX 530
-		CA arrayCifra2
+		CA L				// A = L
+		INDEX counter_dsptab
+		TS cellatab1			// Memorizzo A
+		INDEX counter_dsptab
+		CA arrayCifra2_1
 		TC toDSKYformat
-		INDEX 530
-		ADS 531			// Sommo 531 = 531 + A
-		INDEX 530
+		INDEX counter_dsptab
+		ADS cellatab1			// Sommo cellatab1 = cellatab1 + A
+		INDEX counter_dsptab
 		CA costantiDSPTAB
-		INDEX 530
-		ADS 531			// Sommo il valore nella 531 = DSP + 531
-		INDEX 530
-		TS 531
+		INDEX counter_dsptab
+		ADS cellatab1			// Sommo il valore nella cellatab1 = DSP + cellatab1
+		INDEX counter_dsptab
+		TS cellatab1
 		NOOP
 		EXT
 		WRITE 8
 		
-		INCR 530		// Sottraggo A - const11, per vedere se è uguale a 0
-		CA 530
+		INCR counter_dsptab		// Sottraggo A - const11, per vedere se è uguale a 0
+		CA counter_dsptab
 		TS L
 		CA cost11
 		EXT
@@ -231,63 +245,63 @@ salta:	CA lamps1
 		WRITE 9
 		RESUME
 		
-toDSKYformat: XCH 606 // scambio i contenuti di A e 606
-		CA 606		  // scrivo il contenuto di 606 in A
+toDSKYformat: XCH buffer 	// scambio i contenuti di A e buffer
+		CA buffer		  	// scrivo il contenuto di buffer in A
 		
 		LXCH Z
 		EXT
 		SU L
 		EXT
 		BZF progk1
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk2
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk3
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk4
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk5
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk6
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk7
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk8
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
 		EXT
 		BZF progk9
-		CA 606
+		CA buffer
 		INCR L
 		EXT
 		SU L
@@ -295,7 +309,7 @@ toDSKYformat: XCH 606 // scambio i contenuti di A e 606
 		BZF progk10
 		CA key_0
 		LXCH A
-		CA 606
+		CA buffer
 		EXT
 		SU L
 		EXT
@@ -349,7 +363,7 @@ progk11: CA dskyblank
 // INT20
 		
 	EXT	// INT20: KEYRUPT1
-	READ 12
+	READ 12		// IO[12]
 	XCH L
 	XCH Z
 	AD key_rset
@@ -376,7 +390,7 @@ continua: EXT
 	EXT
 	BZF prog1
 
-	CA 605
+	CA 605				// RAM[605] con le informazioni di stato delle cifre
 	XCH L
 	XCH Z
 	AD Z
@@ -447,7 +461,7 @@ prog1:	CA key_0
 	TS 602
 	TS 603
 	CA Z
-	XCH 604
+	XCH 604		// Cella di busy
 	CA Z
 	XCH 605
 	TC stop_blink
@@ -908,8 +922,8 @@ jmp_prg:	INHINT
 	// Torna al main
 	RELINT
 	CA cost_-0
-	TS arrayCifra1
-	TS arrayCifra2
+	TS arrayCifra1_1
+	TS arrayCifra2_1
 	CA cost_0
 	TS 600
 	TS 601
