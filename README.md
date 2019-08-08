@@ -10,6 +10,8 @@ Features:
   - constants and variables inside data section, and constants comes before variables
   - constants, variables and code addressing can be managed using counter
   - four tables are formed: jump table, symbol table, data table and register table
+  
+Extra:
   - there is an example of assembly code in code.as used to fetch assembly instructions
   - at the end comes generated a list file with the log of assembling and the file object named binaryCode.cc
   - don't forget to redefine parameters at the begin of asm.cc file as you need and interrupt address if you are using AGC emulator
