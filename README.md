@@ -28,10 +28,9 @@ To execute project:
 ./asm -il
 ```
 
-# Issue
+# Issues
 
-This project has been developed very fast - just in three days! - for fun and to understand how is made an assembler; another reason is to create a method to support an easly programming for AGC emulator, then I know you'll find ugly static tables to manage assembly code (no dinamic memory allocation).
-Another problem in this project is the O(n^2) complexity to search data in tables and replace labels inside assembly code, obviusly is possible to reduce computation complexity using STL kit or other tools avaible in C.
+This project has been developed very fast - just in three days! - for fun and to understand how is made an assembler; another reason is to create a method to support an easy programming for AGC emulator, then I know you'll find ugly static tables to manage assembly code (no dynamic memory allocation). Another problem in this project is the O(n^2) complexity to search data in tables and replace labels inside assembly code, obviously is possible to reduce computation complexity using STL kit available in C.
 
 # Contributors
 [Antonio Di Tecco](https://github.com/djqwert)
