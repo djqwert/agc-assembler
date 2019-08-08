@@ -7,8 +7,7 @@ Features:
   - two phases assembler
   - error detenction is provided
   - data section comes before the code section
-  - constants and variables inside data section
-  - constants comes before variables
+  - constants and variables inside data section, and constants comes before variables
   - constants, variables and code addressing can be managed using counter
   - four tables are formed: jump table, symbol table, data table and register table
   - there is an example of assembly code in code.as used to fetch assembly instructions
@@ -26,6 +25,11 @@ To execute project:
 ```sh
 ./asm -il
 ```
+
+# Issue
+
+This project has been developed very fast - just in three days! - for fun and to understand how is made an assembler; another reason is to create a method to support an easly programming for AGC emulator, then I know you'll find ugly static tables to manage assembly code (no dinamic memory allocation).
+Another problem in this project is the O(n^2) complexity to search data in tables and replace labels inside assembly code, obviusly is possible to reduce computation complexity using STL kit or other tools avaible in C.
 
 # Contributors
 [Antonio Di Tecco](https://github.com/djqwert)
