@@ -1,5 +1,5 @@
 # AGC assembler
-This project presents an Assembler for the assembly code of Apollo Guidance Computer.
+This project presents the Assembler v1.0.0 for assembling the Apollo Guidance Computer code.
 
 AGC assembler is used to assemble code for [AGC emulator](https://github.com/djqwert/agc-emulator).
 
